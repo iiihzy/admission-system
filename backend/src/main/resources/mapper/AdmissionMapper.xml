@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.admission.mapper.AdmissionMapper">
+
+    <!-- 搜索录取信息 -->
+    <select id="searchAdmissions" resultType="com.admission.entity.Admission">
+        SELECT * FROM admission
+        <where>
+            <if test="batch != null and batch != ''">
+                AND admission_batch = #{batch}
+            </if>
+            <if test="universityName != null and universityName != ''">
+                AND university_name LIKE CONCAT('%', #{universityName}, '%')
+            </if>
+        </where>
+        ORDER BY admission_time DESC
+    </select>
+
+    <!-- ✅ 修正：获取批次学生视图 -->
+    <select id="getBatchStudents" resultType="map">
+        SELECT
+            考号 AS examNumber,
+            姓名 AS name,
+            性别 AS gender,
+            班级 AS className,
+            录取院校 AS universityName,
+            高考成绩 AS gaokaoScore,
+            录取批次 AS admissionBatch
+        FROM view_batch_admission_students
+        ORDER BY 录取批次, 考号
+    </select>
+
+</mapper>
