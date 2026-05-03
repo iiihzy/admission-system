@@ -1,0 +1,58 @@
+/* 全局样式 */
+:root {
+  --primary-color: #409EFF;
+  --success-color: #67C23A;
+  --warning-color: #E6A23C;
+  --danger-color: #F56C6C;
+  --info-color: #909399;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.el-container {
+  min-height: 100vh;
+}
+
+/* 表格样式优化 */
+.el-table .el-table__row:hover {
+  background-color: #f5f7fa;
+}
+
+/* 按钮样式 */
+.el-button--primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.el-button--primary:hover {
+  background-color: #66b1ff;
+  border-color: #66b1ff;
+}
+
+/* 表单样式 */
+.el-form-item__label {
+  font-weight: bold;
+}
+
+/* 分页样式 */
+.el-pagination {
+  margin-top: 20px;
+  text-align: center;
+}
